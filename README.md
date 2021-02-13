@@ -26,7 +26,7 @@ font_converter.py can be used to create BMP fonts for `bitmap_render_char()` and
 It needs at least Python 3.6 and PyGame.
 
 ### "Computer" and "Magic 5"
-These font are kindly included with permission of DamienG https://damieng.com/zx-origins
+These font are kindly included with permission of DamienG https://damieng.com/typography/zx-origins/
 Make sure to check his site for more awesome fonts.
 
 ## Contact
