@@ -1,0 +1,52 @@
+!define BLANK ""
+E:\_DEVEL\dos16bit\prj01\bitmap.obj : E:\_DEVEL\dos16bit\lib\bitmap.c .AUTOD&
+EPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc ..\lib\bitmap.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -&
+fo=.obj -ml
+
+E:\_DEVEL\dos16bit\prj01\error.obj : E:\_DEVEL\dos16bit\lib\error.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc ..\lib\error.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -f&
+o=.obj -ml
+
+E:\_DEVEL\dos16bit\prj01\ipx.obj : E:\_DEVEL\dos16bit\lib\ipx.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc ..\lib\ipx.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -fo=&
+.obj -ml
+
+E:\_DEVEL\dos16bit\prj01\mouse.obj : E:\_DEVEL\dos16bit\lib\mouse.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc ..\lib\mouse.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -f&
+o=.obj -ml
+
+E:\_DEVEL\dos16bit\prj01\vga.obj : E:\_DEVEL\dos16bit\lib\vga.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc ..\lib\vga.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -fo=&
+.obj -ml
+
+E:\_DEVEL\dos16bit\prj01\main.obj : E:\_DEVEL\dos16bit\prj01\main.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ *wcc main.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -otexan -bt=dos -fo=.obj -&
+ml
+
+E:\_DEVEL\dos16bit\prj01\prj01.exe : E:\_DEVEL\dos16bit\prj01\bitmap.obj E:\&
+_DEVEL\dos16bit\prj01\error.obj E:\_DEVEL\dos16bit\prj01\ipx.obj E:\_DEVEL\d&
+os16bit\prj01\mouse.obj E:\_DEVEL\dos16bit\prj01\vga.obj E:\_DEVEL\dos16bit\&
+prj01\main.obj .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj01
+ @%write prj01.lk1 FIL bitmap.obj,error.obj,ipx.obj,mouse.obj,vga.obj,main.o&
+bj
+ @%append prj01.lk1 
+ *wlink name prj01 d all sys dos op m op maxe=25 op q op symf @prj01.lk1
+
