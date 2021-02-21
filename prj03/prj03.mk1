@@ -1,0 +1,66 @@
+!define BLANK ""
+E:\_DEVEL\dos16bit\prj03\bitmap.obj : E:\_DEVEL\dos16bit\lib\bitmap.c .AUTOD&
+EPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\bitmap.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.&
+obj -ml
+
+E:\_DEVEL\dos16bit\prj03\error.obj : E:\_DEVEL\dos16bit\lib\error.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\error.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.o&
+bj -ml
+
+E:\_DEVEL\dos16bit\prj03\ipx.obj : E:\_DEVEL\dos16bit\lib\ipx.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\ipx.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.obj&
+ -ml
+
+E:\_DEVEL\dos16bit\prj03\mouse.obj : E:\_DEVEL\dos16bit\lib\mouse.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\mouse.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.o&
+bj -ml
+
+E:\_DEVEL\dos16bit\prj03\opl2.obj : E:\_DEVEL\dos16bit\lib\opl2.c .AUTODEPEN&
+D
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\opl2.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.ob&
+j -ml
+
+E:\_DEVEL\dos16bit\prj03\rawdisk.obj : E:\_DEVEL\dos16bit\lib\rawdisk.c .AUT&
+ODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\rawdisk.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=&
+.obj -ml
+
+E:\_DEVEL\dos16bit\prj03\vga.obj : E:\_DEVEL\dos16bit\lib\vga.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc ..\lib\vga.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.obj&
+ -ml
+
+E:\_DEVEL\dos16bit\prj03\main.obj : E:\_DEVEL\dos16bit\prj03\main.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ *wcc main.c -i="E:\WATCOM/h;..\lib" -w4 -e25 -zq -os -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\dos16bit\prj03\prj03.exe : E:\_DEVEL\dos16bit\prj03\bitmap.obj E:\&
+_DEVEL\dos16bit\prj03\error.obj E:\_DEVEL\dos16bit\prj03\ipx.obj E:\_DEVEL\d&
+os16bit\prj03\mouse.obj E:\_DEVEL\dos16bit\prj03\opl2.obj E:\_DEVEL\dos16bit&
+\prj03\rawdisk.obj E:\_DEVEL\dos16bit\prj03\vga.obj E:\_DEVEL\dos16bit\prj03&
+\main.obj .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\dos16bit\prj03
+ @%write prj03.lk1 FIL bitmap.obj,error.obj,ipx.obj,mouse.obj,opl2.obj,rawdi&
+sk.obj,vga.obj,main.obj
+ @%append prj03.lk1 
+ *wlink name prj03 d all sys dos op m op maxe=25 op q op symf @prj03.lk1
+

@@ -13,6 +13,8 @@
 #include "ipx.h"
 #include "mouse.h"
 #include "vga.h"
+#include "rawdisk.h"
+#include "opl2.h"
 
 //! supress unused warning
 #define UNUSED(x) ((void)x)

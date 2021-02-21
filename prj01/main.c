@@ -37,6 +37,17 @@ void render_text(char *fname, uint16_t y) {
     }
 }
 
+void hexdump(uint8_t *data, uint16_t len) {
+    int i;
+    for (i = 0; i < len; i++) {
+        if (i % 16 == 0) {
+            printf("\n0x%04X: ", i);
+        }
+        printf("%02X ", data[i]);
+    }
+    printf("\n\n");
+}
+
 int main(int argc, char *argv[]) {
     bool send = false;
     ipx_data_t data;
@@ -53,8 +64,80 @@ int main(int argc, char *argv[]) {
     int i, x, y;
     vertex_t v[3] = {{100, 10}, {120, 30}, {90, 30}};
 
+    rawdisk_t *rd;
+    uint8_t rd_buff[RD_BLOCKSIZE];
+    uint8_t drive;
+
     if (argc >= 2 && (strcasecmp("send", argv[1]) == 0)) {
         send = true;
+    }
+
+    rd = rd_init();
+    printf("FDD := %d\nHDD := %d\n", rd->num_fdd, rd->num_hdd);
+
+    if (rd->num_fdd) {
+        drive = 0;
+        puts("FDD0:");
+        if (rd_extensions_check(drive)) {
+            printf("  EXT info = %ld blocks\n", rd_extended_drive_parameters(drive));
+            if (rd_extended_read(drive, 0, rd_buff, 1)) {
+                hexdump(rd_buff, 512);
+            } else {
+                printf("  ERROR EXT read: %s\n", err_str);
+            }
+        } else {
+            printf("  info = %ld blocks\n", rd_drive_parameters(drive));
+            if (rd_read_sector(drive, 0, rd_buff, 1)) {
+                hexdump(rd_buff, 512);
+            } else {
+                printf("  ERROR read: %s\n", err_str);
+            }
+        }
+    }
+    if (rd->num_hdd) {
+        drive = 0 | RD_HDD_FLAG;
+        puts("HDD0:");
+        if (rd_extensions_check(drive)) {
+            printf("  EXT info = %ld blocks\n", rd_extended_drive_parameters(drive));
+            if (rd_extended_read(drive, 0, rd_buff, 1)) {
+                hexdump(rd_buff, 512);
+            } else {
+                printf("  ERROR EXT read: %s\n", err_str);
+            }
+        } else {
+            printf("  info = %ld blocks\n", rd_drive_parameters(drive));
+            if (rd_read_sector(drive, 0, rd_buff, 1)) {
+                hexdump(rd_buff, 512);
+            } else {
+                printf("  ERROR read: %s\n", err_str);
+            }
+        }
+    }
+
+    if (opl2_init()) {
+        puts("AdLib found");
+
+        // Setup channels 0, 1 and 2 to produce a bell sound.
+        for (i = 0; i < 3; i++) {
+            opl2_setTremolo(i, OPL2_CARRIER, true);
+            opl2_setVibrato(i, OPL2_CARRIER, true);
+            opl2_setMultiplier(i, OPL2_CARRIER, 0x04);
+            opl2_setAttack(i, OPL2_CARRIER, 0x0A);
+            opl2_setDecay(i, OPL2_CARRIER, 0x04);
+            opl2_setSustain(i, OPL2_CARRIER, 0x0F);
+            opl2_setRelease(i, OPL2_CARRIER, 0x0F);
+            opl2_setVolume(i, OPL2_CARRIER, 0x00);
+        }
+
+        // Play notes on alternating channels.
+        for (i = 0; i < 24; i++) {
+            uint8_t octave = 3 + (i / 12);
+            uint8_t note = i % 12;
+            opl2_playNote(i % 3, octave, note);
+            delay(300);
+        }
+    } else {
+        puts("No sound");
     }
 
     if (ipx_init()) {

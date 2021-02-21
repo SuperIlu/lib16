@@ -25,7 +25,7 @@ MCommand
 6
 MItem
 9
-prj01.exe
+prj03.exe
 7
 WString
 3
@@ -90,8 +90,8 @@ WString
 WCC
 23
 WString
-26
-?????Fastest possible code
+24
+?????Space optimizations
 1
 1
 24
