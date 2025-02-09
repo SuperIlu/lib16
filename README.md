@@ -12,7 +12,7 @@ OPL2 code was ported from [ArduinoOPL2](https://github.com/DhrBaksteen/ArduinoOP
 
 Elk in prj04 is original from [Cesanta Software](https://github.com/cesanta/elk). It was ported to OpenWatcom and hex number literals were added.
 
-Be warned: the rad disk access code ist mostly untested, use at you own risk!
+Be warned: the raw disk access code ist mostly untested, use at you own risk!
 
 ### files/directories
 ```
