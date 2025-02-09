@@ -8,3 +8,6 @@ prj01/OUT.BMP
 prj01/OUT.TXT
 prj01/TST01.bmp
 prj01/WRTST.BMP
+.vscode/
+DBS.lnk
+dosbox-staging/

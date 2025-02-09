@@ -15,6 +15,7 @@
 #include "vga.h"
 #include "rawdisk.h"
 #include "opl2.h"
+#include "util.h"
 
 //! supress unused warning
 #define UNUSED(x) ((void)x)

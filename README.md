@@ -10,6 +10,8 @@ IPX code was developed with the help of the Cylindrix [source](https://github.co
 
 OPL2 code was ported from [ArduinoOPL2](https://github.com/DhrBaksteen/ArduinoOPL2).
 
+Elk in prj04 is original from [Cesanta Software](https://github.com/cesanta/elk). It was ported to OpenWatcom and hex number literals were added.
+
 Be warned: the rad disk access code ist mostly untested, use at you own risk!
 
 ### files/directories
@@ -20,6 +22,7 @@ Be warned: the rad disk access code ist mostly untested, use at you own risk!
 +- prj01/	showcase for all the implemented functions
 +- prj02/	multi player drawing canvas using IPX
 +- prj03/	lib16 port of demotune.cpp
++- prj04/	example code using the [Elk](https://github.com/cesanta/elk) scripting engine
 +- LICENSE	license description for all parts provided
 ```
 
@@ -42,4 +45,4 @@ These font are kindly included with permission of DamienG https://damieng.com/ty
 Make sure to check his site for more awesome fonts.
 
 ## Contact
-You can find me on [Twitter](https://twitter.com/dec_hl) if you want...
+You can find me on [Mastodon](https://mastodon.social/@dec_hl) if you want...
