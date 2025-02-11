@@ -177,7 +177,7 @@ static jsval_t upper(struct js *js, jsval_t scope) { return mkval(T_OBJ, loadoff
 static jsoff_t align32(jsoff_t v) { return ((v + 3) >> 2) << 2; }
 
 #define CHECKV(_v) do { if (is_err(_v)) { res = (_v); goto done; } } while (0)
-#define EXPECT(_tok, _e) do { if (next(js) != _tok) { _e; return js_mkerr(js, "parse error"); }; js->consumed = 1; } while (0)
+#define EXPECT(_tok, _e) do { if (next(js) != _tok) { _e; return js_mkerr(js, "parse error, ex=%d, got=%d", _tok, next(js)); }; js->consumed = 1; } while (0)
 // clang-format on
 
 // Forward declarations of the private functions

@@ -4,6 +4,7 @@
 #include <malloc.h>
 #include <unistd.h>
 #include <dos.h>
+#include <conio.h>
 
 #include "elk.h"
 #include "lib16.h"
@@ -14,8 +15,7 @@ static jsval_t run_script(struct js *js, const char *fname) {
     char *data;
     size_t size;
     if (!util_read_file(fname, (void **)&data, &size)) {
-        printf("require read() failed\n");
-        return js_mkundef();
+        return js_mkerr(js, "file not found: %s", fname);
     }
 
     jsval_t ret = js_eval(js, data, size);
@@ -27,14 +27,14 @@ static jsval_t run_script(struct js *js, const char *fname) {
 static jsval_t js_sleep(struct js *js, jsval_t *args, int nargs) {
     UNUSED(js);
     if (nargs != 1) {
-        return js_mkundef();
+        return js_mkerr(js, "sleep() needs 1 arg");
     }
     sleep((unsigned int)js_getnum(args[0]));
     return js_mkundef();
 }
 static jsval_t js_require(struct js *js, jsval_t *args, int nargs) {
     if (nargs != 1) {
-        return js_mkundef();
+        return js_mkerr(js, "require() needs 1 arg");
     }
     return run_script(js, js_getstr(js, args[0], NULL));
 }
@@ -45,6 +45,18 @@ static jsval_t js_print(struct js *js, jsval_t *args, int nargs) {
     }
     putchar('\n');  // Finish by newline
     return js_mkundef();
+}
+static jsval_t js_getkey(struct js *js, jsval_t *args, int nargs) {
+    UNUSED(args);
+    UNUSED(nargs);
+
+    if (kbhit()) {
+        char str[2] = {0, 0};
+        str[0] = (char)getch();
+        return js_mkstr(js, &str, 1);
+    } else {
+        return js_mknull();
+    }
 }
 
 static jsval_t js_vga_init(struct js *js, jsval_t *args, int nargs) {
@@ -69,9 +81,8 @@ static jsval_t js_vga_grayscale_palette(struct js *js, jsval_t *args, int nargs)
     return js_mkundef();
 }
 static jsval_t js_vga_get_color(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 1) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_get_color() needs 1 arg");
     }
     palette_color_t pc;
     vga_get_color(js_getnum(args[0]), &pc);
@@ -80,9 +91,8 @@ static jsval_t js_vga_get_color(struct js *js, jsval_t *args, int nargs) {
     return js_mknum(col);
 }
 static jsval_t js_vga_set_color(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 4) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_set_color() needs 4 args");
     }
     uint16_t idx = js_getnum(args[0]);
     palette_color_t pc;
@@ -93,9 +103,8 @@ static jsval_t js_vga_set_color(struct js *js, jsval_t *args, int nargs) {
     return js_mkundef();
 }
 static jsval_t js_vga_set_pixel(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 3) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_set_pixel() needs 3 args");
     }
 
     uint16_t x = js_getnum(args[0]);
@@ -107,9 +116,8 @@ static jsval_t js_vga_set_pixel(struct js *js, jsval_t *args, int nargs) {
     return js_mkundef();
 }
 static jsval_t js_vga_get_pixel(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 2) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_get_pixel() needs 2 args");
     }
     uint16_t x = js_getnum(args[0]);
     uint16_t y = js_getnum(args[1]);
@@ -119,9 +127,8 @@ static jsval_t js_vga_get_pixel(struct js *js, jsval_t *args, int nargs) {
     return js_mknum(c);
 }
 static jsval_t js_vga_line(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 5) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_line() needs 5 args");
     }
 
     uint16_t x1 = js_getnum(args[0]);
@@ -136,9 +143,8 @@ static jsval_t js_vga_line(struct js *js, jsval_t *args, int nargs) {
 }
 
 static jsval_t js_vga_rect(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 5) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_rect() needs 5 args");
     }
 
     uint16_t l = js_getnum(args[0]);
@@ -153,9 +159,8 @@ static jsval_t js_vga_rect(struct js *js, jsval_t *args, int nargs) {
 }
 
 static jsval_t js_vga_filled_rect(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 5) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_filled_rect() needs 5 args");
     }
 
     uint16_t l = js_getnum(args[0]);
@@ -170,9 +175,8 @@ static jsval_t js_vga_filled_rect(struct js *js, jsval_t *args, int nargs) {
 }
 
 static jsval_t js_vga_circle(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 4) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_circle() needs 4 args");
     }
 
     uint16_t x = js_getnum(args[0]);
@@ -186,9 +190,8 @@ static jsval_t js_vga_circle(struct js *js, jsval_t *args, int nargs) {
 }
 
 static jsval_t js_vga_filled_circle(struct js *js, jsval_t *args, int nargs) {
-    UNUSED(js);
     if (nargs != 4) {
-        return js_mkundef();
+        return js_mkerr(js, "vga_filled_circle() needs 4 args");
     }
 
     uint16_t x = js_getnum(args[0]);
@@ -230,17 +233,35 @@ static jsval_t js_mouse_init(struct js *js, jsval_t *args, int nargs) {
 
 static jsval_t js_mouse_update(struct js *js, jsval_t *args, int nargs) {
     UNUSED(js);
-    bool update = true;
-    if (nargs >= 1) {
-        update = ((int)js_getnum(args[0])) != 0;
+    if (js_mouse) {
+        bool update = true;
+        if (nargs >= 1) {
+            update = ((int)js_getnum(args[0])) != 0;
+        }
+        mouse_update(update);
     }
-    mouse_update(update);
     return js_mkundef();
 }
-
-// extern void vga_polygon(vertex_t *vertices, uint16_t num_vertices, color_t c);
-// extern void vga_hide_mouse(mouse_t *mouse);
-// extern void vga_show_mouse(mouse_t *mouse);
+static jsval_t js_mouse_x(struct js *js, jsval_t *args, int nargs) {
+    UNUSED(js);
+    UNUSED(args);
+    UNUSED(nargs);
+    if (js_mouse) {
+        return js_mknum(js_mouse->x);
+    } else {
+        return js_mknull();
+    }
+}
+static jsval_t js_mouse_y(struct js *js, jsval_t *args, int nargs) {
+    UNUSED(js);
+    UNUSED(args);
+    UNUSED(nargs);
+    if (js_mouse) {
+        return js_mknum(js_mouse->y);
+    } else {
+        return js_mknull();
+    }
+}
 
 int main(int argc, char *argv[]) {
     int c;
@@ -300,6 +321,7 @@ int main(int argc, char *argv[]) {
     js_set(js, js_glob(js), "require", js_mkfun(js_require));
     js_set(js, js_glob(js), "print", js_mkfun(js_print));
     js_set(js, js_glob(js), "sleep", js_mkfun(js_sleep));
+    js_set(js, js_glob(js), "getkey", js_mkfun(js_getkey));
 
     js_set(js, js_glob(js), "vga_init", js_mkfun(js_vga_init));
     js_set(js, js_glob(js), "vga_exit", js_mkfun(js_vga_exit));
@@ -317,6 +339,8 @@ int main(int argc, char *argv[]) {
     js_set(js, js_glob(js), "vga_show_mouse", js_mkfun(js_vga_show_mouse));
     js_set(js, js_glob(js), "mouse_init", js_mkfun(js_mouse_init));
     js_set(js, js_glob(js), "mouse_update", js_mkfun(js_mouse_update));
+    js_set(js, js_glob(js), "mouse_x", js_mkfun(js_mouse_x));
+    js_set(js, js_glob(js), "mouse_y", js_mkfun(js_mouse_y));
 
     res = run_script(js, argv[optind]);
 
