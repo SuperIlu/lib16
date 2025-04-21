@@ -1,0 +1,260 @@
+!define BLANK ""
+E:\_DEVEL\GitHub\lib16\lapi.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lapi.&
+c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lapi.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87&
+ -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lauxlib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\la&
+uxlib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lauxlib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lbaselib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\l&
+baselib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lbaselib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -f&
+pi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lcode.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lcod&
+e.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lcode.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi8&
+7 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lcorolib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\l&
+corolib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lcorolib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -f&
+pi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lctype.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lct&
+ype.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lctype.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ldblib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ldb&
+lib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ldblib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ldebug.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lde&
+bug.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ldebug.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ldo.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ldo.c &
+.AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ldo.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 &
+-bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ldump.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ldum&
+p.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ldump.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi8&
+7 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lfunc.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lfun&
+c.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lfunc.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi8&
+7 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lgc.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lgc.c &
+.AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lgc.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 &
+-bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\linit.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lini&
+t.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\linit.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi8&
+7 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\liolib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lio&
+lib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\liolib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\llex.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\llex.&
+c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\llex.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87&
+ -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lmathlib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\l&
+mathlib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lmathlib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -f&
+pi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lmem.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lmem.&
+c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lmem.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87&
+ -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\loadlib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lo&
+adlib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\loadlib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lobject.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lo&
+bject.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lobject.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lopcodes.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\l&
+opcodes.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lopcodes.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -f&
+pi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\loslib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\los&
+lib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\loslib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lparser.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lp&
+arser.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lparser.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lstate.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lst&
+ate.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lstate.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lstring.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ls&
+tring.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lstring.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lstrlib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ls&
+trlib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lstrlib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ltable.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lta&
+ble.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ltable.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi&
+87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ltablib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lt&
+ablib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ltablib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ltm.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\ltm.c &
+.AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\ltm.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 &
+-bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lundump.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lu&
+ndump.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lundump.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fp&
+i87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lutf8lib.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\l&
+utf8lib.c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lutf8lib.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -f&
+pi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lvm.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lvm.c &
+.AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lvm.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 &
+-bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lzio.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lzio.&
+c .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lzio.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87&
+ -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\liblua.lib : E:\_DEVEL\GitHub\lib16\lapi.obj E:\_DEVE&
+L\GitHub\lib16\lauxlib.obj E:\_DEVEL\GitHub\lib16\lbaselib.obj E:\_DEVEL\Git&
+Hub\lib16\lcode.obj E:\_DEVEL\GitHub\lib16\lcorolib.obj E:\_DEVEL\GitHub\lib&
+16\lctype.obj E:\_DEVEL\GitHub\lib16\ldblib.obj E:\_DEVEL\GitHub\lib16\ldebu&
+g.obj E:\_DEVEL\GitHub\lib16\ldo.obj E:\_DEVEL\GitHub\lib16\ldump.obj E:\_DE&
+VEL\GitHub\lib16\lfunc.obj E:\_DEVEL\GitHub\lib16\lgc.obj E:\_DEVEL\GitHub\l&
+ib16\linit.obj E:\_DEVEL\GitHub\lib16\liolib.obj E:\_DEVEL\GitHub\lib16\llex&
+.obj E:\_DEVEL\GitHub\lib16\lmathlib.obj E:\_DEVEL\GitHub\lib16\lmem.obj E:\&
+_DEVEL\GitHub\lib16\loadlib.obj E:\_DEVEL\GitHub\lib16\lobject.obj E:\_DEVEL&
+\GitHub\lib16\lopcodes.obj E:\_DEVEL\GitHub\lib16\loslib.obj E:\_DEVEL\GitHu&
+b\lib16\lparser.obj E:\_DEVEL\GitHub\lib16\lstate.obj E:\_DEVEL\GitHub\lib16&
+\lstring.obj E:\_DEVEL\GitHub\lib16\lstrlib.obj E:\_DEVEL\GitHub\lib16\ltabl&
+e.obj E:\_DEVEL\GitHub\lib16\ltablib.obj E:\_DEVEL\GitHub\lib16\ltm.obj E:\_&
+DEVEL\GitHub\lib16\lundump.obj E:\_DEVEL\GitHub\lib16\lutf8lib.obj E:\_DEVEL&
+\GitHub\lib16\lvm.obj E:\_DEVEL\GitHub\lib16\lzio.obj .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ %create liblua.lb1
+!ifneq BLANK "lapi.obj lauxlib.obj lbaselib.obj lcode.obj lcorolib.obj lctyp&
+e.obj ldblib.obj ldebug.obj ldo.obj ldump.obj lfunc.obj lgc.obj linit.obj li&
+olib.obj llex.obj lmathlib.obj lmem.obj loadlib.obj lobject.obj lopcodes.obj&
+ loslib.obj lparser.obj lstate.obj lstring.obj lstrlib.obj ltable.obj ltabli&
+b.obj ltm.obj lundump.obj lutf8lib.obj lvm.obj lzio.obj"
+ @for %i in (lapi.obj lauxlib.obj lbaselib.obj lcode.obj lcorolib.obj lctype&
+.obj ldblib.obj ldebug.obj ldo.obj ldump.obj lfunc.obj lgc.obj linit.obj lio&
+lib.obj llex.obj lmathlib.obj lmem.obj loadlib.obj lobject.obj lopcodes.obj &
+loslib.obj lparser.obj lstate.obj lstring.obj lstrlib.obj ltable.obj ltablib&
+.obj ltm.obj lundump.obj lutf8lib.obj lvm.obj lzio.obj) do @%append liblua.l&
+b1 +'%i'
+!endif
+!ifneq BLANK ""
+ @for %i in () do @%append liblua.lb1 +'%i'
+!endif
+ *wlib -b -c -n -q -p=512 liblua.lib @liblua.lb1
+

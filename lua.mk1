@@ -1,0 +1,17 @@
+!define BLANK ""
+E:\_DEVEL\GitHub\lib16\lua.obj : E:\_DEVEL\GitHub\lib16\lua-5.4.7\src\lua.c &
+.AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lua-5.4.7\src\lua.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -d2 -bt=dos &
+-fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lua.exe : E:\_DEVEL\GitHub\lib16\lua.obj E:\_DEVEL\Gi&
+tHub\lib16\liblua.lib .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ @%write lua.lk1 FIL lua.obj
+ @%append lua.lk1 LIBR liblua.lib
+ *wlink name lua d all sys dos op st=16k op m op maxe=25 op q op symf @lua.l&
+k1
+

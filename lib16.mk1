@@ -1,0 +1,75 @@
+!define BLANK ""
+E:\_DEVEL\GitHub\lib16\bitmap.obj : E:\_DEVEL\GitHub\lib16\lib\bitmap.c .AUT&
+ODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\bitmap.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos&
+ -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\error.obj : E:\_DEVEL\GitHub\lib16\lib\error.c .AUTOD&
+EPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\error.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos &
+-fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\ipx.obj : E:\_DEVEL\GitHub\lib16\lib\ipx.c .AUTODEPEN&
+D
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\ipx.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos -f&
+o=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\mouse.obj : E:\_DEVEL\GitHub\lib16\lib\mouse.c .AUTOD&
+EPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\mouse.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos &
+-fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\opl2.obj : E:\_DEVEL\GitHub\lib16\lib\opl2.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\opl2.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos -&
+fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\rawdisk.obj : E:\_DEVEL\GitHub\lib16\lib\rawdisk.c .A&
+UTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\rawdisk.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=do&
+s -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\util.obj : E:\_DEVEL\GitHub\lib16\lib\util.c .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\util.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos -&
+fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\vga.obj : E:\_DEVEL\GitHub\lib16\lib\vga.c .AUTODEPEN&
+D
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc lib\vga.c -i="E:\WATCOM/h" -w4 -e25 -zq -otexan -fp3 -fpi87 -bt=dos -f&
+o=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\lib16.lib : E:\_DEVEL\GitHub\lib16\bitmap.obj E:\_DEV&
+EL\GitHub\lib16\error.obj E:\_DEVEL\GitHub\lib16\ipx.obj E:\_DEVEL\GitHub\li&
+b16\mouse.obj E:\_DEVEL\GitHub\lib16\opl2.obj E:\_DEVEL\GitHub\lib16\rawdisk&
+.obj E:\_DEVEL\GitHub\lib16\util.obj E:\_DEVEL\GitHub\lib16\vga.obj .AUTODEP&
+END
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ %create lib16.lb1
+!ifneq BLANK "bitmap.obj error.obj ipx.obj mouse.obj opl2.obj rawdisk.obj ut&
+il.obj vga.obj"
+ @for %i in (bitmap.obj error.obj ipx.obj mouse.obj opl2.obj rawdisk.obj uti&
+l.obj vga.obj) do @%append lib16.lb1 +'%i'
+!endif
+!ifneq BLANK ""
+ @for %i in () do @%append lib16.lb1 +'%i'
+!endif
+ *wlib -b -c -n -q -p=512 lib16.lib @lib16.lb1
+

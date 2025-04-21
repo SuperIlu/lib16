@@ -57,11 +57,14 @@ uint8_t *VGA_MEMORY = (uint8_t *)0xA0000000L;
 /* ======================================================================
 ** local variables
 ** ====================================================================== */
+//! indicates of VGA mode is active
+bool vga_active = false;
+
 //! pre calculated sin(acos()) table
 #ifdef VGA_DYNAMIC_TABLE
-static fixed16_16 SIN_ACOS[VGA_SINACOS_TABLE_SIZE];
+static const fixed16_16 SIN_ACOS[VGA_SINACOS_TABLE_SIZE];
 #else
-static fixed16_16 SIN_ACOS[VGA_SINACOS_TABLE_SIZE] = {
+static const fixed16_16 SIN_ACOS[VGA_SINACOS_TABLE_SIZE] = {
     65536, 65535, 65535, 65535, 65535, 65535, 65534, 65534, 65533, 65533, 65532, 65532, 65531, 65530, 65529, 65528, 65527, 65526, 65525, 65524, 65523, 65522, 65520, 65519, 65517,
     65516, 65514, 65513, 65511, 65509, 65507, 65505, 65503, 65501, 65499, 65497, 65495, 65493, 65490, 65488, 65485, 65483, 65480, 65478, 65475, 65472, 65469, 65466, 65463, 65460,
     65457, 65454, 65451, 65448, 65444, 65441, 65437, 65434, 65430, 65427, 65423, 65419, 65415, 65411, 65407, 65403, 65399, 65395, 65391, 65387, 65382, 65378, 65373, 65369, 65364,
@@ -121,17 +124,6 @@ static void vga_set_mode(int mode) {
     int86(INT_VBIOS, &regs, &regs);
 }
 
-void vga_wait_for_retrace(void) {
-    /* wait until done with vertical retrace */
-    while ((inp(VGA_INPUT_STATUS) & VGA_VRETRACE)) {
-        ;
-    }
-    /* wait until done refreshing */
-    while (!(inp(VGA_INPUT_STATUS) & VGA_VRETRACE)) {
-        ;
-    }
-}
-
 /* ======================================================================
 ** public functions
 ** ====================================================================== */
@@ -161,7 +153,7 @@ bool vga_init(void) {
         SIN_ACOS[i] = TO_FIXED(sin(acos((float)i / VGA_SINACOS_TABLE_SIZE)));
     }
 #endif  // VGA_DYNAMIC_TABLE
-
+    vga_active = true;
     ERR_OK();
     return true;
 }
@@ -169,7 +161,12 @@ bool vga_init(void) {
 /**
  * @brief switch back to 80 column text mode.
  */
-void vga_exit(void) { vga_set_mode(TEXT_80); }
+void vga_exit(void) {
+    if (vga_active) {
+        vga_set_mode(TEXT_80);
+        vga_active = false;
+    }
+}
 
 /**
  * @brief set the whole VGA palette.
@@ -526,5 +523,19 @@ void vga_filled_circle(uint16_t x, uint16_t y, uint16_t radius, color_t color) {
         dx++;
         n += invradius;
         dy = (int)((radius * SIN_ACOS[(int)(n >> 6)]) >> 16);
+    }
+}
+
+/**
+ * @brief wait for VGA retrace
+ */
+void vga_wait_for_retrace(void) {
+    /* wait until done with vertical retrace */
+    while ((inp(VGA_INPUT_STATUS) & VGA_VRETRACE)) {
+        ;
+    }
+    /* wait until done refreshing */
+    while (!(inp(VGA_INPUT_STATUS) & VGA_VRETRACE)) {
+        ;
     }
 }

@@ -10,23 +10,24 @@ IPX code was developed with the help of the Cylindrix [source](https://github.co
 
 OPL2 code was ported from [ArduinoOPL2](https://github.com/DhrBaksteen/ArduinoOPL2).
 
-Elk in prj04 is original from [Cesanta Software](https://github.com/cesanta/elk). It was ported to OpenWatcom and hex number literals were added.
-
 Be warned: the raw disk access code ist mostly untested, use at you own risk!
 
 ### files/directories
 ```
 |
-+- fonts/	example fonts and a Python script to convert TTF to BMP.
-+- lib/		library source files
-+- prj01/	showcase for all the implemented functions
-+- prj02/	multi player drawing canvas using IPX
-+- prj03/	lib16 port of demotune.cpp
-+- prj04/	example code using the [Elk](https://github.com/cesanta/elk) scripting engine
-+- LICENSE	license description for all parts provided
++- fonts/		example fonts and a Python script to convert TTF to BMP.
++- lib/			lib16 library source files
++- lua-5.4.7/	lua 5.4.7 source
++- prj01/		showcase for all the implemented functions
++- prj02/		multi player drawing canvas using IPX
++- prj03/		lib16 port of demotune.cpp
++- prj04/		example code using lua-5.4.7
++- LICENSE		license description for all parts provided
 ```
 
 I have included the OpenWatcom project files as a reference. You need to change these if you want to compile the examples yourself because OpenWatcom includes absolute paths in these files.
+
+The EXE were compiled for i386 w/ i387.
 
 ### Tunables/defines
 #### VGA_DYNAMIC_TABLE

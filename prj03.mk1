@@ -1,0 +1,16 @@
+!define BLANK ""
+E:\_DEVEL\GitHub\lib16\prj03.obj : E:\_DEVEL\GitHub\lib16\prj03\prj03.c .AUT&
+ODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc prj03\prj03.c -i="E:\WATCOM/h;lib" -w4 -e25 -zq -od -d2 -bt=dos -fo=.o&
+bj -ml
+
+E:\_DEVEL\GitHub\lib16\prj03.exe : E:\_DEVEL\GitHub\lib16\prj03.obj E:\_DEVE&
+L\GitHub\lib16\lib16.lib .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ @%write prj03.lk1 FIL prj03.obj
+ @%append prj03.lk1 LIBR lib16.lib
+ *wlink name prj03 d all sys dos op m op maxe=25 op q op symf @prj03.lk1
+

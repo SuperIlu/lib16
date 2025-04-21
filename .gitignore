@@ -1,9 +1,12 @@
 *.obj
 *.exe
-prj01/IPX.TXT
 *.map
 *.sym
 *.err
+*.lib
+*.lb1
+
+prj01/IPX.TXT
 prj01/OUT.BMP
 prj01/OUT.TXT
 prj01/TST01.bmp

@@ -64,5 +64,6 @@ extern void vga_hide_mouse(mouse_t *mouse);
 extern void vga_show_mouse(mouse_t *mouse);
 extern void vga_circle(uint16_t x, uint16_t y, uint16_t radius, color_t color);
 extern void vga_filled_circle(uint16_t x, uint16_t y, uint16_t radius, color_t color);
+extern void vga_wait_for_retrace(void);
 
 #endif  // __VGA_H_

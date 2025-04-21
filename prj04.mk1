@@ -1,0 +1,16 @@
+!define BLANK ""
+E:\_DEVEL\GitHub\lib16\prj04.obj : E:\_DEVEL\GitHub\lib16\prj04\prj04.c .AUT&
+ODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ *wcc prj04\prj04.c -i="E:\WATCOM/h;lib;lua-5.4.7\src" -w4 -e25 -zq -za99 -o&
+texan -d2 -fp3 -fpi87 -bt=dos -fo=.obj -ml
+
+E:\_DEVEL\GitHub\lib16\prj04.exe : E:\_DEVEL\GitHub\lib16\prj04.obj E:\_DEVE&
+L\GitHub\lib16\lib16.lib E:\_DEVEL\GitHub\lib16\liblua.lib .AUTODEPEND
+ @E:
+ cd E:\_DEVEL\GitHub\lib16
+ @%write prj04.lk1 FIL prj04.obj
+ @%append prj04.lk1 LIBR lib16.lib,liblua.lib
+ *wlink name prj04 sys dos op st=16k op m op maxe=25 op q op symf @prj04.lk1
+
